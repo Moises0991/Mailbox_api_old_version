@@ -7,101 +7,57 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
+
 class StudentSeeder extends Seeder
 {
+    
+    
     public function run()
     {
-        DB::table('students')->insert([
-            // 'name' => 'Juan',
-            // 'surname' => 'Morales Zapata',
-            // 'password' => bcrypt('jMorales'),
-            // 'career' => 'software',
-            // 'email' => '201900568@estudiantes.upqroo.edu.mx',
-        ]);
 
-        $data = [
-            [
-                'name' => 'Andrea',
-                'surname' => 'Medina Ramirez',
-                'password' => 'aMe*Ra',
-                'career' => 'Terapia Fisica',
-                'mail' => '201900963@estudiantes.upqroo.edu.mx',
-            ],
-            [
-                'name' => 'Juan',
-                'surname' => 'Morales Zapata',
-                'password' => 'jMo*Za',
-                'career' => 'Software',
-                'mail' => '201900753@estudiantes.upqroo.edu.mx',
-            ],
-            [
-                'name' => 'Jorge',
-                'surname' => 'Poot Castañeda',
-                'password' => 'jMo*Za',
-                'career' => 'Software',
-                'mail' => '201900753@estudiantes.upqroo.edu.mx',
-            ],
-        ];
-
-        $data = [
-            [
-                'Andrea',
-                'Medina Ramirez',
-                'aMe*Ra',
-                'Terapia Fisica',
-                '201900963@estudiantes.upqroo.edu.mx',
-            ],
-            [
-                'Juan',
-                'Morales Zapata',
-                'jMo*Za',
-                'Software',
-                '201900753@estudiantes.upqroo.edu.mx',
-            ],
-            [
-                'Jorge',
-                'Poot Castañeda',
-                'jMo*Za',
-                'Software',
-                '201900753@estudiantes.upqroo.edu.mx',
-            ],
-        ];
-
-
-        for($i= 0; $i < count($data); $i++) {
-            for($j= 0; $j < count($data[$i]); $j++) {
-
-                DB::table('students')->insert([	            
-                    'name' => $data[$i][$j],
-                    'surname' => $data[$i][$j],
-                    'surname' => $student->surname,
-                    'password' => bcrypt($student->password),
-                    'career' => $student->career,
-                    'email' => $student->mail,
-                ]);
-            }
+        function student($name, $surname, $password, $career, $email) {
+            DB::table('students')->insert([	            
+                'name' => $name,
+                'surname' => $surname,
+                'password' => bcrypt($password),
+                'career' => $career,
+                'email' => $email,
+                // 'timestamps' => date_default_timezone_get(),
+            ]);
         }
+
+        student('Andrea', 'Medina Ramirez', 'aMe*Ra', 'Terapia Fisica', '201900963@estudiantes.upqroo.edu.mx');
+        student('Juan', 'Morales Zapata', 'jMo*Za', 'Ing. Software', '201900753@estudiantes.upqroo.edu.mx');
+        student('Jorge', 'Poot Castañeda', 'jMo*Za', 'Ing. Software', '201900353@estudiantes.upqroo.edu.mx');
+        student('Jose','Molar Garcia','jMo*Ga','Ing. Financiera','201900088@estudiantes.upqroo.edu.mx');
+        student('Raul','Valencia Medina', 'rVa*Me','Ing. Biomedica', '201900099@estudiantes.upqroo.edu.mx');
+        student('Samuel', 'Nuñes Zavala', 'sNu*Za', 'Ing. Biotecnologia', '201900599@estudiantes.upqroo.edu.mx');
+        student('Nataly', 'Castañeda Dzul', 'nCa*Dz', 'Ing. Software', '201900299@estudiantes.upqroo.edu.mx');
         
-        foreach ($data as $student) {
-          DB::table('students')->insert([	            
-              'name' => $student->name,
-              'surname' => $student->surname,
-              'password' => bcrypt($student->password),
-              'career' => $student->career,
-              'email' => $student->mail,
-          ]);
-        }
 
+        student('Erick', 'Salazar Cerrano', 'eSa*Ce', 'Ing. Software', '202053963@estudiantes.upqroo.edu.mx');
+        student('Osbaldo', 'Sanches Puc', 'oSa*Pu', 'Ing. Biotecnologia', '202045753@estudiantes.upqroo.edu.mx');
+        student('Manuel', 'Diaz Mejia', 'mDi*Me', 'Terapia Fisica', '20205353@estudiantes.upqroo.edu.mx');
+        student('Gian Carlos','Zuñiga Ramirez','gZu*Ra','Ing. Financiera','202000088@estudiantes.upqroo.edu.mx');
+        student('Adam', 'Cervantes Luna', 'aCe*Lu', 'Ing. Software', '202000299@estudiantes.upqroo.edu.mx');
+        student('Joel', 'Uribe Antia', 'jUr*An', 'Ing. Biotecnologia', '202000599@estudiantes.upqroo.edu.mx');
+        student('Nickole','Correa Larios', 'nCo*La','Ing. Biomedica', '202000099@estudiantes.upqroo.edu.mx');
 
-        $arrays = range(0,20);
-        foreach ($arrays as $asd) {
-          DB::table('students')->insert([	            
-              'name' => Str::random(10),
-              'surname' => Str::random(10),
-              'password' => bcrypt('upqroo2022'),
-              'career' => Str::random(10),
-              'email' => Str::random(30),
-          ]);
-        }
+        student('Maria', 'Valencia Garcia', 'mVa*Ga', 'Ing. biotecnologia', '202200363@estudiantes.upqroo.edu.mx');
+        student('Fernando', 'Ortiz Zapata', 'fOr*Za', 'Ing. Software', '202200753@estudiantes.upqroo.edu.mx');
+        student('Lucia', 'Chavez No', 'lCh*No', 'Ing. Software', '202200353@estudiantes.upqroo.edu.mx');
+        student('Arturo','Morales Po','aMo*Po','Ing. Financiera','202200288@estudiantes.upqroo.edu.mx');
+        student('Pedro','Garcia Perez', 'pGa*Pe','Ing. Biomedica','202230088@estudiantes.upqroo.edu.mx');
+        
+        // $arrays = range(0,20);
+        // foreach ($arrays as $asd) {
+        //   DB::table('students')->insert([	            
+        //       'name' => Str::random(10),
+        //       'surname' => Str::random(10),
+        //       'password' => bcrypt('upqroo2022'),
+        //       'career' => Str::random(10),
+        //       'email' => Str::random(30),
+        //   ]);
+        // }
     }
 }

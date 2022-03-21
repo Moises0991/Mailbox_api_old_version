@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -8,9 +9,14 @@ Route::get('/', function () {
 
 
 // authentification routes
-Route::get('login/{type}', [loginController::class, 'index'])->middleware('guest')->name('login');
-Route::post('sign_in', [loginController::class, 'auth_attempt'])->middleware('guest')->name('sign_in');
-Route::post('sign_up', [registerController::class, 'create'])->middleware('guest')->name('sign_up');
+Route::post('sign_in/{type}', [sign_inController::class, 'auth_attempt'])->middleware('guest')->name('sign_in');
+Route::post('sign_up/{type}', [sign_upController::class, 'create'])->middleware('guest')->name('sign_up');
+
+
+Route::post('sign_in_student}', [sign_inController::class, 'student'])->middleware('guest')->name('sign_in_student');
+Route::post('sign_up_administrator', [sign_upController::class, 'administrator'])->middleware('guest')->name('sign_in_administrator');
+
+
 
 // authentification with google
 Route::get('/login-google', [loginController::class, 'redirectToGoogle'])->name('login-google');

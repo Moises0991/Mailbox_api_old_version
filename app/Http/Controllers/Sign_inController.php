@@ -17,7 +17,6 @@ class Sign_inController extends Controller
 
         }
     }
-
     public function student() {
 
     }
@@ -47,33 +46,27 @@ class Sign_inController extends Controller
     }
 
     // validation or user creation with google
-    public function callbackFromGoogle() {
+    // public function callbackFromGoogle() {
 
-        $student = Socialite::driver('google')->user();
-        $isStudent = Student::where('external_id', $student->id)->where('external_auth', 'google')->first();
+    //     $student = Socialite::driver('google')->user();
+    //     $isStudent = Student::where('external_id', $student->id)->where('external_auth', 'google')->first();
 
-        if($isUser) {
-            Auth::login($isUser);
-        } else {
-            $userNew = User::create([
-                'name' => $user->name,
-                'email' => $user->email,
-                'avatar' => $user->avatar,
-                'external_id' => $user->id,
-                'external_auth' => 'google'
-            ]);
+    //     if($isUser) {
+    //         Auth::login($isUser);
+    //     } else {
+    //         $userNew = User::create([
+    //             'name' => $user->name,
+    //             'email' => $user->email,
+    //             'avatar' => $user->avatar,
+    //             'external_id' => $user->id,
+    //             'external_auth' => 'google'
+    //         ]);
 
-            Auth::login($userNew);
-        }
+    //         Auth::login($userNew);
+    //     }
 
-        return redirect(route('home'));
-    }
-
-
-
-
-
-
+    //     return redirect(route('home'));
+    // }
 
 
     // function destroy

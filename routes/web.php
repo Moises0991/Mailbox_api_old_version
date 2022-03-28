@@ -1,7 +1,8 @@
 <?php
-
+use App\Http\Controllers\SignInAdminController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RegisterAdminController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -9,12 +10,14 @@ Route::get('/', function () {
 
 
 // authentification routes
-Route::post('sign_in/{type}', [sign_inController::class, 'auth_attempt'])->middleware('guest')->name('sign_in');
-Route::post('sign_up/{type}', [sign_upController::class, 'create'])->middleware('guest')->name('sign_up');
+Route::get('sign_in', [Sign_inController::class, 'sorting'])->middleware('guest')->name('sign_in');
+Route::post('sign_up', [Sign_upController::class, 'sorting'])->middleware('guest')->name('sign_up');
 
 
-Route::post('sign_in_student}', [sign_inController::class, 'student'])->middleware('guest')->name('sign_in_student');
-Route::post('sign_up_administrator', [sign_upController::class, 'administrator'])->middleware('guest')->name('sign_in_administrator');
+Route::get('sign_in_student', [Sign_inController::class, 'student'])->middleware('guest')->name('sign_in_student');
+Route::post('sign_in_admin', [sign_inController::class, 'admin'])->middleware('guest')->name('sign_in_admin');
+Route::post('sign_up_student', [sign_upController::class, 'student'])->middleware('guest')->name('sign_in_student');
+Route::post('sign_up_admin', [sign_upController::class, 'admin'])->middleware('guest')->name('sign_in_admin');
 
 
 

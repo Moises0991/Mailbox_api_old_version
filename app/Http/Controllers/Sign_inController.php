@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
+use App\Http\Controllers\StudentController;
+use App\Models\Student;
+use App\Models\Admin;
 
 class Sign_inController extends Controller
 {
@@ -12,16 +15,21 @@ class Sign_inController extends Controller
         if($type === 'student') {
             return redirect(route('sign_in_student'));
         } else if($type === 'administrator') {
-
+            return redirect(route('sign_in_admin'));
         } else {
+            
 
         }
     }
     public function student() {
-
+$student = Student::all();
+return 'EXCISTO XD';
     }
     
-    public function administrator() {
+    public function admin() {
+//dentro de este metodo va ir la logica de iniciar sesion 
+//donde se conecta el modelo y se realiza la uto
+$admin = Admin::all();
 
     }
 

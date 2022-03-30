@@ -8,42 +8,65 @@ use Laravel\Socialite\Facades\Socialite;
 
 class Sign_inController extends Controller
 {
-    public function sorting($type) {
-        if($type === 'student') {
-            return redirect(route('sign_in_student'));
-        } else if($type === 'administrator') {
+    // public function sorting(Request $credentials) {
+        // $data = json_decode(file_get_contents('php://input'));
+        // return response()->json(['message'=>'all is function']);
 
-        } else {
+        // return view('welcome');
 
-        }
-    }
+        // if($credentials->type === 'student') {
+        //     // return redirect(route('sign_in_student'));
+
+        // } else if($credentials->type === 'administrator') {
+        //     return redirect(route('sign_in_student'));
+            
+        // } else {
+        //     return response()->json([
+        //         'message' => 'Tipo de usuario inexistente',
+        //         'access' => 'denied'
+        //     ]);
+        // }
+    // }
+
     public function student() {
-
+        return response()->json([
+            'id' => '1',
+            'name' => 'Moises',
+            'surname' => 'Soler Zetina',
+            'password' => '0991',
+            'email' => 'moises0991@gmail.com',
+        ]);
     }
     
     public function administrator() {
-
+        return response()->json([
+            'id' => '1',
+            'name' => 'Juan',
+            'surname' => 'Medina Ramirez',
+            'password' => '0991',
+            'email' => 'juan@gmail.com',
+        ]);
     }
 
-    public function auth_attempt(Request $sign_inCredentials) {
+    // public function auth_attempt(Request $sign_inCredentials) {
 
-        $credentials = $sign_inCredentials->only('email', 'password');
-        if(Auth::attempt($credentials)){
+    //     $credentials = $sign_inCredentials->only('email', 'password');
+    //     if(Auth::attempt($credentials)){
 
-            return redirect()->intended(route('home'));
+    //         return redirect()->intended(route('home'));
 
-        } else {
+    //     } else {
 
-            return back()->withErrors([
-                'message' => 'Usuario o contraseña erroneos'
-            ]);
-        }
-    }
+    //         return back()->withErrors([
+    //             'message' => 'Usuario o contraseña erroneos'
+    //         ]);
+    //     }
+    // }
 
     // login with google
-    public function redirectToGoogle() {
-        return Socialite::driver('google')->redirect();
-    }
+    // public function redirectToGoogle() {
+    //     return Socialite::driver('google')->redirect();
+    // }
 
     // validation or user creation with google
     // public function callbackFromGoogle() {
@@ -74,7 +97,5 @@ class Sign_inController extends Controller
         Auth::logout();
         return redirect()->intended(route('login'));
     }
-
-
 
 }

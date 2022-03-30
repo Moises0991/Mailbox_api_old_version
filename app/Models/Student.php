@@ -16,7 +16,7 @@ class Student extends Model
         'email',
         'career',
     ];
-
+    
     protected $hidden = [
         'password',
         'remember_token'

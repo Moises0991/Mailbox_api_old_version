@@ -3,6 +3,7 @@ use App\Http\Controllers\SignInAdminController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterAdminController;
+use App\Http\Controllers\Sign_inController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -15,7 +16,7 @@ Route::post('sign_up', [Sign_upController::class, 'sorting'])->middleware('guest
 
 
 Route::get('sign_in_student', [Sign_inController::class, 'student'])->middleware('guest')->name('sign_in_student');
-Route::post('sign_in_admin', [sign_inController::class, 'admin'])->middleware('guest')->name('sign_in_admin');
+Route::get('sign_in_admin', [sign_inController::class, 'admin'])->middleware('guest')->name('sign_in_admin');
 Route::post('sign_up_student', [sign_upController::class, 'student'])->middleware('guest')->name('sign_in_student');
 Route::post('sign_up_admin', [sign_upController::class, 'admin'])->middleware('guest')->name('sign_in_admin');
 

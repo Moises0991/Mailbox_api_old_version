@@ -25,13 +25,25 @@ class Sign_inController extends Controller
 $student = Student::all();
 return 'EXCISTO XD';
     }
+
+
+    $Admin::where()->where()->first());
     
-    public function admin() {
-//dentro de este metodo va ir la logica de iniciar sesion 
-//donde se conecta el modelo y se realiza la uto
-$admin = Admin::all();
+public function admin() {
+
+$
+
+if(Admin::where("name","Andreaa")->where("password",bcrypt('aMe*Raa'))->first()){
+    return "si estoy aqui";
+}else{
+
+    return "aqui no ando ";
+}
 
     }
+
+
+
 
     public function auth_attempt(Request $sign_inCredentials) {
 

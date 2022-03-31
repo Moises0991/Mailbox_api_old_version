@@ -14,7 +14,8 @@ class sign_upController extends Controller {
         if($userData->type == 'student') {
             $studentData = $userData->only('name', 'surname', 'password', 'email', 'career');
             $student = Student::create($studentData);
-            Auth::login($student);
+            // Auth::login($student);
+
 
         } else if ($userData->type == 'admin') {
             $adminData = $userData->only('name', 'surname', 'password', 'email');
@@ -31,16 +32,6 @@ class sign_upController extends Controller {
         return response()->json([
             'message' => 'Registro completado exitosamente',
             'success' => true,
-        ]);
-
-    }
-
-
-    public function consult() {
-        return response()->json([
-            'message' => 'name', 
-            'surname' => 'surname'
-
         ]);
 
         // echo csrf_token();

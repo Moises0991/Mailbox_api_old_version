@@ -5,58 +5,65 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
+use App\Http\Controllers\StudentController;
+use App\Models\Student;
+use App\Models\Admin;
 
 class Sign_inController extends Controller
 {
-    // public function sorting(Request $credentials) {
-        // $data = json_decode(file_get_contents('php://input'));
-        // return response()->json(['message'=>'all is function']);
+    public function sorting(Request $credentials) {
 
-        // return view('welcome');
-
-        // if($credentials->type === 'student') {
-        //     // return redirect(route('sign_in_student'));
-
-        // } else if($credentials->type === 'administrator') {
-        //     return redirect(route('sign_in_student'));
+        // $credentials->type = 'student';
+        
+        // if($credentials->type == 'student') {
             
+            // sign_in_student();
+        // } else if($credentials->type == 'admin') {
+            // sign_in_student();
         // } else {
-        //     return response()->json([
-        //         'message' => 'Tipo de usuario inexistente',
-        //         'access' => 'denied'
-        //     ]);
+        //     return 'the sorting failed';
+        // }
+    }
+
+    // public function student() {
+        // $student = Student::all();
+        // return $credentials = [
+        //     'email' => 'Juana',
+        //     'password' => 'soler'
+        // ];
+
+    //     return 'this is a shit';
+    // }
+
+
+    
+    // public function admin(Request $sign_inCredentials) {
+
+        // $credentials = [
+        //     'email' => 'Juana',
+        //     'password' => 'soler'
+        // ];
+
+        // Auth::login($credentials);
+        // $credentials = $sign_inCredentials->only('email', 'password');
+
+        // if(Auth::attempt($credentials)){
+        //     return "si estoy aqui";
+        // }else{
+        //     return "aqui no ando ";
+            // return back()->withErrors([
+            //     'message' => 'No se completo la autentificación'
+            // ]);
         // }
     // }
 
-    public function student() {
-        return response()->json([
-            'id' => '1',
-            'name' => 'Moises',
-            'surname' => 'Soler Zetina',
-            'password' => '0991',
-            'email' => 'moises0991@gmail.com',
-        ]);
-    }
-    
-    public function administrator() {
-        return response()->json([
-            'id' => '1',
-            'name' => 'Juan',
-            'surname' => 'Medina Ramirez',
-            'password' => '0991',
-            'email' => 'juan@gmail.com',
-        ]);
-    }
 
     // public function auth_attempt(Request $sign_inCredentials) {
 
     //     $credentials = $sign_inCredentials->only('email', 'password');
     //     if(Auth::attempt($credentials)){
-
     //         return redirect()->intended(route('home'));
-
     //     } else {
-
     //         return back()->withErrors([
     //             'message' => 'Usuario o contraseña erroneos'
     //         ]);
@@ -93,9 +100,16 @@ class Sign_inController extends Controller
 
 
     // function destroy
+<<<<<<< HEAD
     public function destroy($id) {
         Auth::logout();
         return redirect()->intended(route('login'));
     }
+=======
+    // public function destroy($id) {
+    //     Auth::logout();
+    //     return redirect()->intended(route('login'));
+    // }
+>>>>>>> ivan
 
 }

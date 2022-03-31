@@ -11,59 +11,69 @@ use App\Models\Admin;
 
 class Sign_inController extends Controller
 {
-    public function sorting($type) {
-        if($type === 'student') {
-            return redirect(route('sign_in_student'));
-        } else if($type === 'administrator') {
-            return redirect(route('sign_in_admin'));
-        } else {
+    public function sorting(Request $credentials) {
+
+        // $credentials->type = 'student';
+        
+        // if($credentials->type == 'student') {
             
-
-        }
+            // sign_in_student();
+        // } else if($credentials->type == 'admin') {
+            // sign_in_student();
+        // } else {
+        //     return 'the sorting failed';
+        // }
     }
-    public function student() {
-$student = Student::all();
-return 'EXCISTO XD';
-    }
+
+    // public function student() {
+        // $student = Student::all();
+        // return $credentials = [
+        //     'email' => 'Juana',
+        //     'password' => 'soler'
+        // ];
+
+    //     return 'this is a shit';
+    // }
 
 
-    $Admin::where()->where()->first());
     
-public function admin() {
+    // public function admin(Request $sign_inCredentials) {
 
-$
+        // $credentials = [
+        //     'email' => 'Juana',
+        //     'password' => 'soler'
+        // ];
 
-if(Admin::where("name","Andreaa")->where("password",bcrypt('aMe*Raa'))->first()){
-    return "si estoy aqui";
-}else{
+        // Auth::login($credentials);
+        // $credentials = $sign_inCredentials->only('email', 'password');
 
-    return "aqui no ando ";
-}
+        // if(Auth::attempt($credentials)){
+        //     return "si estoy aqui";
+        // }else{
+        //     return "aqui no ando ";
+            // return back()->withErrors([
+            //     'message' => 'No se completo la autentificación'
+            // ]);
+        // }
+    // }
 
-    }
 
+    // public function auth_attempt(Request $sign_inCredentials) {
 
-
-
-    public function auth_attempt(Request $sign_inCredentials) {
-
-        $credentials = $sign_inCredentials->only('email', 'password');
-        if(Auth::attempt($credentials)){
-
-            return redirect()->intended(route('home'));
-
-        } else {
-
-            return back()->withErrors([
-                'message' => 'Usuario o contraseña erroneos'
-            ]);
-        }
-    }
+    //     $credentials = $sign_inCredentials->only('email', 'password');
+    //     if(Auth::attempt($credentials)){
+    //         return redirect()->intended(route('home'));
+    //     } else {
+    //         return back()->withErrors([
+    //             'message' => 'Usuario o contraseña erroneos'
+    //         ]);
+    //     }
+    // }
 
     // login with google
-    public function redirectToGoogle() {
-        return Socialite::driver('google')->redirect();
-    }
+    // public function redirectToGoogle() {
+    //     return Socialite::driver('google')->redirect();
+    // }
 
     // validation or user creation with google
     // public function callbackFromGoogle() {
@@ -90,11 +100,9 @@ if(Admin::where("name","Andreaa")->where("password",bcrypt('aMe*Raa'))->first())
 
 
     // function destroy
-    public function destroy($id) {
-        Auth::logout();
-        return redirect()->intended(route('login'));
-    }
-
-
+    // public function destroy($id) {
+    //     Auth::logout();
+    //     return redirect()->intended(route('login'));
+    // }
 
 }

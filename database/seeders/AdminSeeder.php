@@ -35,18 +35,5 @@ class AdminSeeder extends Seeder
      admin('Samuela', 'Nuñes Zavala', 'sNu*Za', 'a201900599@estudiantes.upqroo.edu.mx');
      admin('Natalya', 'Castañeda Dzul', 'nCa*Dz', 'a201900299@estudiantes.upqroo.edu.mx');
 
-
-     
-      
-        // $arrays = range(0,20);
-        // foreach ($arrays as $asd) {
-        //   DB::table('students')->insert([	            
-        //       'name' => Str::random(10),
-        //       'surname' => Str::random(10),
-        //       'password' => bcrypt('upqroo2022'),
-        //       'career' => Str::random(10),
-        //       'email' => Str::random(30),
-        //   ]);
-        // }
     }
 }

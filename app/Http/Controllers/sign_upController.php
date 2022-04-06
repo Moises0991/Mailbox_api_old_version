@@ -10,8 +10,8 @@ use Illuminate\Support\Facades\Auth;
 class sign_upController extends Controller {
 
     public function create(Request $userData) {
-
-        if($userData->type == 'student') {
+       
+        if($userData->type == "student") {
             $studentData = $userData->only('name', 'surname', 'password', 'email', 'career');
             $student = Student::create($studentData);
             // Auth::login($student);
@@ -25,6 +25,7 @@ class sign_upController extends Controller {
         } else {
             return response()->json([
                 'message' => 'Favor de validar el tipo de usuario a crear',
+                'usuario' => $userData->type,
                 'success' => false
             ]);
         }
@@ -34,12 +35,13 @@ class sign_upController extends Controller {
             'success' => true,
         ]);
 
-        // echo csrf_token();
+        
+
     }
 
-    // public function show($id) {
-
-    // }
+    public function token() {
+ echo csrf_token();
+     }
 
     // public function edit($id)
     // {

@@ -9,6 +9,7 @@ use App\Http\Controllers\StudentController;
 use App\Models\Student;
 use App\Models\Admin;
 
+
 class Sign_inController extends Controller
 {
     public function sorting(Request $credentials) {
